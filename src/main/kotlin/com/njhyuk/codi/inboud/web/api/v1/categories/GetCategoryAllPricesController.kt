@@ -4,16 +4,16 @@ import com.njhyuk.codi.core.price.domain.PriceType
 import com.njhyuk.codi.core.price.query.GetCategoryPricesQuery
 import com.njhyuk.codi.inboud.web.WebResponse
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class GetCategoryAllPricesController(
     private val getCategoryPricesQuery: GetCategoryPricesQuery
 ) {
-    @GetMapping("/api/v1/codi/categories/all-prices")
+    @GetMapping("/api/v1/categories/{category}/prices")
     fun getCategoryAllPrices(
-        @RequestParam category: String
+        @PathVariable category: String
     ): WebResponse<GetCategoryAllPricesResponse> {
         val response = getCategoryPricesQuery.findAllByCategory(category)
             .prices.associateBy { it.priceType }

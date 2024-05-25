@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 class GetCategoryLowestPricesController(
     private val getCategoryPricesQuery: GetCategoryPricesQuery
 ) {
-    @GetMapping("/api/v1/codi/categories/lowest-prices")
+    @GetMapping("/api/v1/categories/lowest-prices")
     fun getCategoryLowestPrices(): WebResponse<GetCategoryLowestPricesResponse> {
         val response = getCategoryPricesQuery.findAllByPriceType(PriceType.LOWEST)
 

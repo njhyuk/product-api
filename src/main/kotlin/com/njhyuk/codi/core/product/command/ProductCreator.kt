@@ -2,12 +2,15 @@ package com.njhyuk.codi.core.product.command
 
 import com.njhyuk.codi.core.product.domian.Product
 import com.njhyuk.codi.core.product.domian.ProductRepository
+import com.njhyuk.codi.core.product.event.ProductCreatedEvent
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 class ProductCreator(
-    private val productRepository: ProductRepository
+    private val productRepository: ProductRepository,
+    private val applicationEventPublisher: ApplicationEventPublisher
 ) {
     @Transactional
     fun create(command: CreateProductCommand): Long {
@@ -18,6 +21,15 @@ class ProductCreator(
                 brand = command.brand
             )
         )
+
+        applicationEventPublisher.publishEvent(
+            ProductCreatedEvent(
+                productNo = product.id,
+                category = product.category,
+                brand = product.brand,
+            )
+        )
+
         return product.id
     }
 }

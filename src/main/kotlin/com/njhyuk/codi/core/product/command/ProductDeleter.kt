@@ -11,8 +11,8 @@ class ProductDeleter(
     private val productRepository: ProductRepository
 ) {
     @Transactional
-    fun delete(command: UpdateProductCommand) {
-        val product = productRepository.findByIdOrNull(command.id)
+    fun delete(productNo: Long) {
+        val product = productRepository.findByIdOrNull(productNo)
             ?: throw NotExistsProductException()
 
         productRepository.delete(product)

@@ -12,7 +12,7 @@ class ProductUpdater(
 ) {
     @Transactional
     fun update(command: UpdateProductCommand): Long {
-        val product = productRepository.findByIdOrNull(command.id)
+        val product = productRepository.findByIdOrNull(command.productNo)
             ?: throw NotExistsProductException()
 
         product.apply {

@@ -18,6 +18,8 @@ data class CategoryPrice(
     @Enumerated(EnumType.STRING)
     val priceType: PriceType,
     val category: String,
+    val brand: String,
+    val productNo: String,
     val productPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),

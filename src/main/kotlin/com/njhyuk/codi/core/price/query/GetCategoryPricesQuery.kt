@@ -10,7 +10,7 @@ class GetCategoryPricesQuery(
     private val categoryPriceRepository: CategoryPriceRepository
 ) {
     @Transactional(readOnly = true)
-    fun findAllByCategory(category: String): GetCategoryPricesDto {
+    fun findPricesByCategory(category: String): GetCategoryPricesDto {
         val prices = categoryPriceRepository.findAllByCategory(category)
             .map { CategoryPriceDto.from(it) }
 
@@ -21,7 +21,7 @@ class GetCategoryPricesQuery(
     }
 
     @Transactional(readOnly = true)
-    fun findAllByPriceType(priceType: PriceType): GetCategoryPricesDto {
+    fun findPricesByPriceType(priceType: PriceType): GetCategoryPricesDto {
         val prices = categoryPriceRepository.findAllByPriceType(priceType)
             .map { CategoryPriceDto.from(it) }
 

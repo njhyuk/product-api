@@ -9,7 +9,7 @@ class GetBrandCategoryPricesQuery(
     private val brandCategoryPriceRepository: BrandCategoryPriceRepository
 ) {
     @Transactional(readOnly = true)
-    fun findLowestPrices(brand: String): GetBrandCategoryPricesDto {
+    fun findAllLowestCategoryPrices(brand: String): GetBrandCategoryPricesDto {
         val prices = brandCategoryPriceRepository.findAllByBrand(brand)
             .map { BrandCategoryPriceDto.from(it) }
 

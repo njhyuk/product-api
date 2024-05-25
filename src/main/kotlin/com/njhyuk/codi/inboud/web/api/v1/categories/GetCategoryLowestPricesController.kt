@@ -12,7 +12,7 @@ class GetCategoryLowestPricesController(
 ) {
     @GetMapping("/api/v1/categories/lowest-prices")
     fun getCategoryLowestPrices(): WebResponse<GetCategoryLowestPricesResponse> {
-        val response = getCategoryPricesQuery.findAllByPriceType(PriceType.LOWEST)
+        val response = getCategoryPricesQuery.findPricesByPriceType(PriceType.LOWEST)
 
         return WebResponse.success(
             GetCategoryLowestPricesResponse.from(response)

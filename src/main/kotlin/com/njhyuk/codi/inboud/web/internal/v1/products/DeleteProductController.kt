@@ -13,9 +13,7 @@ class DeleteProductController(
 ) {
     @DeleteMapping("/internal/v1/products/{productNo}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deleteProduct(
-        @PathVariable productNo: Long,
-    ) {
+    fun deleteProduct(@PathVariable productNo: Long) {
         productDeleter.delete(productNo)
     }
 }

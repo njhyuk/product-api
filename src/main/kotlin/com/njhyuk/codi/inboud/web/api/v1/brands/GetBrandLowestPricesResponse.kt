@@ -1,31 +1,32 @@
 package com.njhyuk.codi.inboud.web.api.v1.brands
 
 import com.njhyuk.codi.core.price.query.BrandCategoryPriceDto
-import com.njhyuk.codi.core.price.query.BrandPriceDto
 import com.njhyuk.codi.core.price.query.GetBrandCategoryPricesDto
+import com.njhyuk.codi.inboud.web.api.v1.brands.BrandPriceItemResponse as BrandPriceItem
+import com.njhyuk.codi.inboud.web.api.v1.brands.BrandLowestPriceItemResponse as PriceItem
 
 data class GetBrandLowestPricesResponse(
-    val lowestPrice: LowestPriceItemResponse
+    val lowestPrice: PriceItem
 ) {
     companion object {
-        fun from(
-            brandPrice: BrandPriceDto,
-            prices: GetBrandCategoryPricesDto
+        fun of(
+            brand: String,
+            brandCategoryPrices: GetBrandCategoryPricesDto
         ): GetBrandLowestPricesResponse {
             return GetBrandLowestPricesResponse(
-                LowestPriceItemResponse(
-                    brand = brandPrice.brand,
-                    categories = prices.prices.map { BrandPriceItemResponse.from(it) },
-                    totalPrice = prices.totalPrice
+                PriceItem(
+                    brand = brand,
+                    categories = brandCategoryPrices.prices.map { BrandPriceItem.from(it) },
+                    totalPrice = brandCategoryPrices.totalPrice
                 )
             )
         }
     }
 }
 
-data class LowestPriceItemResponse(
+data class BrandLowestPriceItemResponse(
     val brand: String,
-    val categories: List<BrandPriceItemResponse>,
+    val categories: List<BrandPriceItem>,
     val totalPrice: Long
 )
 
@@ -34,8 +35,8 @@ data class BrandPriceItemResponse(
     val productPrice: Long
 ) {
     companion object {
-        fun from(price: BrandCategoryPriceDto): BrandPriceItemResponse {
-            return BrandPriceItemResponse(
+        fun from(price: BrandCategoryPriceDto): BrandPriceItem {
+            return BrandPriceItem(
                 category = price.category,
                 productPrice = price.productPrice
             )

@@ -10,6 +10,17 @@ class GetCategoryPricesQuery(
     private val categoryPriceRepository: CategoryPriceRepository
 ) {
     @Transactional(readOnly = true)
+    fun findAllByCategory(category: String): GetCategoryPricesDto {
+        val prices = categoryPriceRepository.findAllByCategory(category)
+            .map { CategoryPriceDto.from(it) }
+
+        return GetCategoryPricesDto(
+            prices = prices,
+            totalPrice = prices.sumOf { it.productPrice }
+        )
+    }
+
+    @Transactional(readOnly = true)
     fun findAllByPriceType(priceType: PriceType): GetCategoryPricesDto {
         val prices = categoryPriceRepository.findAllByPriceType(priceType)
             .map { CategoryPriceDto.from(it) }

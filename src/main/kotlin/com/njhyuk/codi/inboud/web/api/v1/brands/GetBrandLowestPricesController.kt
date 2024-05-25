@@ -11,7 +11,7 @@ class GetBrandLowestPricesController(
     private val getBrandPriceQuery: GetBrandPriceQuery,
     private val getBrandCategoryPricesQuery: GetBrandCategoryPricesQuery
 ) {
-    @GetMapping("/api/v1/brands/lowest-prices")
+    @GetMapping("/api/v1/codi/brands/lowest-prices")
     fun getBrandLowestPrices(): WebResponse<GetBrandLowestPricesResponse> {
         val brandPrice = getBrandPriceQuery.findLowestPrice()
             ?: throw IllegalStateException("Brand price not found")

@@ -1,4 +1,4 @@
-package com.njhyuk.codi.inboud.web.api.v1.products
+package com.njhyuk.codi.inboud.web.api.v1.categories
 
 import com.njhyuk.codi.core.price.query.CategoryPriceDto
 import com.njhyuk.codi.core.price.query.GetCategoryPricesDto

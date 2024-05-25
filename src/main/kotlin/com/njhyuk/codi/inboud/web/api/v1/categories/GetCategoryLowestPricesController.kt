@@ -1,4 +1,4 @@
-package com.njhyuk.codi.inboud.web.api.v1.products
+package com.njhyuk.codi.inboud.web.api.v1.categories
 
 import com.njhyuk.codi.core.price.domain.PriceType
 import com.njhyuk.codi.core.price.query.GetCategoryPricesQuery
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 class GetCategoryLowestPricesController(
     private val getCategoryPricesQuery: GetCategoryPricesQuery
 ) {
-    @GetMapping("/api/v1/codi/products/lowest-prices")
+    @GetMapping("/api/v1/codi/categories/lowest-prices")
     fun getCategoryLowestPrices(): WebResponse<GetCategoryLowestPricesResponse> {
         val response = getCategoryPricesQuery.findAllByPriceType(PriceType.LOWEST)
 

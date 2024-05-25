@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 class GetCategoryAllPricesController(
     private val getCategoryPricesQuery: GetCategoryPricesQuery
 ) {
-    @GetMapping("/api/v1/categories/prices")
+    @GetMapping("/api/v1/codi/categories/all-prices")
     fun getCategoryAllPrices(
         @RequestParam category: String
     ): WebResponse<GetCategoryAllPricesResponse> {

@@ -14,11 +14,10 @@ import java.time.LocalDateTime
 data class Product(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
-    val name: String,
-    val price: Double,
-    val category: String,
-    val brand: String,
+    val id: Long = 0L,
+    var price: Double,
+    var category: String,
+    var brand: String,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),
 )

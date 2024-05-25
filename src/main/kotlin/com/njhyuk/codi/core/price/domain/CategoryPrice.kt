@@ -14,7 +14,7 @@ import java.time.LocalDateTime
 data class CategoryPrice(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long = 0L,
     @Enumerated(EnumType.STRING)
     val priceType: PriceType,
     val category: String,

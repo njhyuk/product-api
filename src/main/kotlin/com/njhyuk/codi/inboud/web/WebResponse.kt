@@ -2,21 +2,21 @@ package com.njhyuk.codi.inboud.web
 
 import com.njhyuk.codi.config.exception.ErrorCode
 
-data class WebResponse<E>(
+data class WebResponse<T>(
     val success: Boolean,
     val code: String? = null,
     val message: String? = null,
-    val data: E?
+    val data: T?
 ) {
     companion object {
-        fun <E> success(result: E): WebResponse<E> {
+        fun <T> success(result: T): WebResponse<T> {
             return WebResponse(
                 success = true,
                 data = result
             )
         }
 
-        fun <E> error(errorCode: ErrorCode): WebResponse<E> {
+        fun <T> error(errorCode: ErrorCode): WebResponse<T> {
             return WebResponse(
                 success = false,
                 code = errorCode.code,

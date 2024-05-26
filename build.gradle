@@ -39,6 +39,15 @@ dependencies {
     implementation 'io.github.microutils:kotlin-logging-jvm:3.0.5'
 
     /**
+     * for redis
+     */
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.25.2'
+    implementation('it.ozimov:embedded-redis:0.7.3') {
+        exclude group: "org.slf4j", module: "slf4j-simple"
+    }
+
+    /**
      * for testing
      */
     testImplementation 'io.kotest:kotest-runner-junit5:5.5.5'

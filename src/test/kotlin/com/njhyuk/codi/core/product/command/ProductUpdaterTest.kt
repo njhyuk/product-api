@@ -17,7 +17,7 @@ class ProductUpdaterTest(
     private val productUpdater: ProductUpdater = ProductUpdater(productRepository, applicationEventPublisher)
 ) : DescribeSpec({
     beforeTest {
-        given(productRepository.findById(1)).willReturn(Optional.of(ProductFixture._상의))
+        given(productRepository.findById(1)).willReturn(Optional.of(ProductFixture._상의_A브랜드))
         given(productRepository.findById(2)).willReturn(Optional.empty())
     }
 

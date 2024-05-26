@@ -1,7 +1,6 @@
 package com.njhyuk.codi.core.product.command
 
 import com.njhyuk.codi.core.price.exception.NotExistsProductException
-import com.njhyuk.codi.core.product.domian.Product
 import com.njhyuk.codi.core.product.domian.ProductRepository
 import com.njhyuk.codi.fixtures.ProductFixture
 import io.kotest.core.spec.style.DescribeSpec
@@ -20,7 +19,7 @@ class ProductDeleterTest(
     )
 ) : DescribeSpec({
     beforeTest {
-        given(productRepository.findById(1)).willReturn(Optional.of(ProductFixture._상의))
+        given(productRepository.findById(1)).willReturn(Optional.of(ProductFixture._상의_A브랜드))
         given(productRepository.findById(2)).willReturn(Optional.empty())
     }
 

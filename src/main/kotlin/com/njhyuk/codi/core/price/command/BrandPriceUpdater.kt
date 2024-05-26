@@ -65,7 +65,7 @@ class BrandPriceUpdater(
         brandLowestPriceRepository.save(brandLowestPrice)
     }
 
-    fun shouldUpdatePrice(oldPrice: BrandCategoryLowestPrice?, newPrice: Long): Boolean {
+    private fun shouldUpdatePrice(oldPrice: BrandCategoryLowestPrice?, newPrice: Long): Boolean {
         return oldPrice == null || oldPrice.productPrice > newPrice
     }
 }

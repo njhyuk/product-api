@@ -17,7 +17,7 @@ class ProductCreatorTest(
 ) : DescribeSpec({
     beforeTest {
         given(productRepository.save(any<Product>()))
-            .willReturn(ProductFixture._상의)
+            .willReturn(ProductFixture._상의_A브랜드)
     }
 
     describe("create 메서드는") {

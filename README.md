@@ -86,7 +86,7 @@ http://localhost:8080/swagger-ui/index.html
 | 컬럼명     | 데이터 타입         | 설명                       |
 |------------|---------------------|----------------------------|
 | id         | BIGINT              | 기본 키, 자동 생성          |
-| price      | BIGINT              | 상품의 가격                 |
+| price      | INT              | 상품의 가격                 |
 | category   | VARCHAR             | 상품의 카테고리              |
 | brand      | VARCHAR             | 상품의 브랜드               |
 | created_at | DATETIME           | 생성 일시                  |

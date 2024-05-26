@@ -3,18 +3,18 @@ package com.njhyuk.codi.core.product.command
 import com.njhyuk.codi.core.price.exception.NotExistsProductException
 import com.njhyuk.codi.core.product.domian.ProductRepository
 import com.njhyuk.codi.fixtures.ProductFixture
+import com.njhyuk.codi.outbound.event.EventPublisher
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.given
 import org.mockito.kotlin.mock
-import org.springframework.context.ApplicationEventPublisher
 import java.util.*
 
 class ProductUpdaterTest(
     private val productRepository: ProductRepository = mock(),
-    private val applicationEventPublisher: ApplicationEventPublisher = mock(),
-    private val productUpdater: ProductUpdater = ProductUpdater(productRepository, applicationEventPublisher)
+    private val eventPublisher: EventPublisher = mock(),
+    private val productUpdater: ProductUpdater = ProductUpdater(productRepository, eventPublisher)
 ) : DescribeSpec({
     beforeTest {
         given(productRepository.findById(1)).willReturn(Optional.of(ProductFixture._상의_A브랜드))

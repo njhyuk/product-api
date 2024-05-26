@@ -3,7 +3,7 @@ package com.njhyuk.codi.core.product.command
 import com.njhyuk.codi.core.price.exception.NotExistsProductException
 import com.njhyuk.codi.core.product.domian.ProductRepository
 import com.njhyuk.codi.core.product.event.ProductUpdatedEvent
-import org.springframework.context.ApplicationEventPublisher
+import com.njhyuk.codi.outbound.event.EventPublisher
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 class ProductUpdater(
     private val productRepository: ProductRepository,
-    private val applicationEventPublisher: ApplicationEventPublisher
+    private val eventPublisher: EventPublisher
 ) {
     @Transactional
     fun update(command: UpdateProductCommand): Long {
@@ -24,7 +24,7 @@ class ProductUpdater(
             brand = command.brand
         }
 
-        applicationEventPublisher.publishEvent(
+        eventPublisher.publish(
             ProductUpdatedEvent(
                 productNo = product.id,
                 category = product.category,

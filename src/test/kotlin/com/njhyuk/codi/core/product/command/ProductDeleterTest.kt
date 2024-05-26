@@ -3,19 +3,19 @@ package com.njhyuk.codi.core.product.command
 import com.njhyuk.codi.core.price.exception.NotExistsProductException
 import com.njhyuk.codi.core.product.domian.ProductRepository
 import com.njhyuk.codi.fixtures.ProductFixture
+import com.njhyuk.codi.outbound.event.EventPublisher
 import io.kotest.core.spec.style.DescribeSpec
 import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.given
 import org.mockito.kotlin.mock
-import org.springframework.context.ApplicationEventPublisher
 import java.util.*
 
 class ProductDeleterTest(
     private val productRepository: ProductRepository = mock(),
-    private val applicationEventPublisher: ApplicationEventPublisher = mock(),
+    private val eventPublisher: EventPublisher = mock(),
     private val productDeleter: ProductDeleter = ProductDeleter(
         productRepository = productRepository,
-        applicationEventPublisher = applicationEventPublisher
+        eventPublisher = eventPublisher
     )
 ) : DescribeSpec({
     beforeTest {

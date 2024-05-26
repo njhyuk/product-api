@@ -16,3 +16,7 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     generate-unique-name: false
+    hikari:
+      connection-timeout: 3000
+      maximum-pool-size: 30
+      max-lifetime: 30000

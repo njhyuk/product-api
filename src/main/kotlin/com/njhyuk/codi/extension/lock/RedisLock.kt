@@ -18,7 +18,7 @@ class RedisDistributedLockAspect(
     fun proceed(joinPoint: ProceedingJoinPoint): Any? {
         val methodSignature = joinPoint.signature as MethodSignature
         val annotation = methodSignature.method.getAnnotation(RedisDistributedLock::class.java)
-        val lockKey = "$REDISSON_LOCK_PREFIX${annotation.key}"
+        val lockKey = buildLockKey(annotation, joinPoint.args)
         val redisLock = redissonClient.getLock(lockKey)
 
         try {
@@ -30,5 +30,11 @@ class RedisDistributedLockAspect(
             if (redisLock.isLocked && redisLock.isHeldByCurrentThread)
                 redisLock.unlock()
         }
+    }
+
+    private fun buildLockKey(annotation: RedisDistributedLock, args: Array<Any>): String {
+        val key = annotation.key
+        val paramValues = args.joinToString(separator = ":") { it.toString() }
+        return "$REDISSON_LOCK_PREFIX$key:$paramValues"
     }
 }

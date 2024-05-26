@@ -6,6 +6,7 @@ import com.njhyuk.codi.core.price.domain.BrandLowestPrice
 import com.njhyuk.codi.core.price.domain.BrandLowestPriceRepository
 import com.njhyuk.codi.core.product.domian.Product
 import com.njhyuk.codi.core.product.domian.ProductRepository
+import com.njhyuk.codi.extension.lock.RedisDistributedLock
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -16,6 +17,7 @@ class BrandPriceUpdater(
     private val brandCategoryLowestPriceRepository: BrandCategoryLowestPriceRepository
 ) {
     @Transactional
+    @RedisDistributedLock(key = "updatePrice")
     fun updatePrice(brand: String, category: String) {
         val product = productRepository.findFirstByBrandAndCategoryOrderByPriceAsc(brand, category)
             ?: return

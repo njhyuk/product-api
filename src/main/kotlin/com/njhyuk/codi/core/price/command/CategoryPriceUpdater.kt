@@ -7,6 +7,7 @@ import com.njhyuk.codi.core.price.domain.PriceType.HIGHEST
 import com.njhyuk.codi.core.price.domain.PriceType.LOWEST
 import com.njhyuk.codi.core.product.domian.Product
 import com.njhyuk.codi.core.product.domian.ProductRepository
+import com.njhyuk.codi.extension.lock.RedisDistributedLock
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -16,6 +17,7 @@ class CategoryPriceUpdater(
     private val categoryPriceRepository: CategoryPriceRepository
 ) {
     @Transactional
+    @RedisDistributedLock(key = "categoryPriceUpdate")
     fun updatePrice(category: String) {
         PriceType.values().forEach { priceType ->
             val product = findProduct(category, priceType) ?: return

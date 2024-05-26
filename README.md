@@ -111,7 +111,7 @@ http://localhost:8080/swagger-ui/index.html
 | brand          | VARCHAR       | 브랜드                         |
 | category       | VARCHAR       | 카테고리                        |
 | product_no     | BIGINT        | 상품 번호                       |
-| product_price  | BIGINT        | 상품 가격                       |
+| product_price  | INT        | 상품 가격                       |
 | created_at     | DATETIME      | 생성 일시                       |
 | updated_at     | DATETIME      | 수정 일시                       |
 
@@ -131,7 +131,7 @@ http://localhost:8080/swagger-ui/index.html
 |----------------|--------------|-------------------------------|
 | id             | BIGINT       | 기본 키, 자동 생성             |
 | brand          | VARCHAR      | 브랜드                        |
-| total_price    | BIGINT       | 총 가격                       |
+| total_price    | INT       | 총 가격                       |
 | created_at     | DATETIME     | 생성 일시                      |
 | updated_at     | DATETIME     | 수정 일시                      |
 
@@ -161,7 +161,7 @@ http://localhost:8080/swagger-ui/index.html
 | category       | VARCHAR             | 카테고리                        |
 | brand          | VARCHAR             | 브랜드                         |
 | product_no     | BIGINT              | 상품 번호                       |
-| product_price  | BIGINT              | 상품 가격                       |
+| product_price  | INT              | 상품 가격                       |
 | created_at     | DATETIME           | 생성 일시                       |
 | updated_at     | DATETIME           | 수정 일시                       |
 

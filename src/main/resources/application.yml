@@ -4,7 +4,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    show-sql: true
+    show-sql: false
   h2:
     console:
       path: /h2-console

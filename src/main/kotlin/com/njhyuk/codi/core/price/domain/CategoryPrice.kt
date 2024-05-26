@@ -6,12 +6,19 @@ import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.Index
 import jakarta.persistence.Table
 import jakarta.persistence.UniqueConstraint
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "category_price", uniqueConstraints = [UniqueConstraint(columnNames = ["priceType", "category"])])
+@Table(
+    name = "category_price",
+    uniqueConstraints = [UniqueConstraint(columnNames = ["priceType", "category"])],
+    indexes = [
+        Index(name = "category_price_idx01", columnList = "priceType, category, productPrice")
+    ]
+)
 data class CategoryPrice(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

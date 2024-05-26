@@ -30,5 +30,5 @@ data class CategoryPrice(
     var productNo: Long,
     var productPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+    val updatedAt: LocalDateTime = LocalDateTime.now()
 )

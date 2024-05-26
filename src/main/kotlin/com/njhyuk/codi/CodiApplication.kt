@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class CodiApplication
 
 fun main(args: Array<String>) {
-	runApplication<CodiApplication>(*args)
+    runApplication<CodiApplication>(*args)
 }

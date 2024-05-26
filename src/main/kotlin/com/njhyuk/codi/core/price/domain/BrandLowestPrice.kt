@@ -25,5 +25,5 @@ data class BrandLowestPrice(
     val brand: String,
     var totalPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+    val updatedAt: LocalDateTime = LocalDateTime.now()
 )

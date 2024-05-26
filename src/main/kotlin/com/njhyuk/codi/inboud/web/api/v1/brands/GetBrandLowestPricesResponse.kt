@@ -3,8 +3,8 @@ package com.njhyuk.codi.inboud.web.api.v1.brands
 import com.njhyuk.codi.core.price.query.BrandCategoryPriceDto
 import com.njhyuk.codi.core.price.query.GetBrandCategoryPricesDto
 import io.swagger.v3.oas.annotations.media.Schema
-import com.njhyuk.codi.inboud.web.api.v1.brands.BrandPriceItemResponse as BrandPriceItem
 import com.njhyuk.codi.inboud.web.api.v1.brands.BrandLowestPriceItemResponse as PriceItem
+import com.njhyuk.codi.inboud.web.api.v1.brands.BrandPriceItemResponse as BrandPriceItem
 
 data class GetBrandLowestPricesResponse(
     @Schema(description = "최저가")

@@ -28,7 +28,7 @@ class ProductUpdater(
             ProductUpdatedEvent(
                 productNo = product.id,
                 category = product.category,
-                brand = product.brand,
+                brand = product.brand
             )
         )
 

@@ -20,7 +20,8 @@ class UpdateProductController(
     @PutMapping("/internal/v1/products/{productNo}")
     fun updateProduct(
         @Schema(description = "상품 번호", example = "123")
-        @PathVariable productNo: Long,
+        @PathVariable
+        productNo: Long,
         @RequestBody request: UpdateProductRequest
     ): WebResponse<UpdateProductResponse> {
         val response = productUpdater.update(

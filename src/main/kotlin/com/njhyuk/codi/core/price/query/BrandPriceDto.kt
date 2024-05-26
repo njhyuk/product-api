@@ -4,13 +4,13 @@ import com.njhyuk.codi.core.price.domain.BrandLowestPrice
 
 data class BrandPriceDto(
     val brand: String,
-    val totalPrice: Long,
+    val totalPrice: Long
 ) {
     companion object {
         fun from(brandPrice: BrandLowestPrice): BrandPriceDto {
             return BrandPriceDto(
                 brand = brandPrice.brand,
-                totalPrice = brandPrice.totalPrice,
+                totalPrice = brandPrice.totalPrice
             )
         }
     }

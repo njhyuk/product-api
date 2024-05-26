@@ -1,6 +1,5 @@
 package com.njhyuk.codi.core.price.query
 
-import com.njhyuk.codi.core.price.domain.CategoryPrice
 import com.njhyuk.codi.core.price.domain.CategoryPriceRepository
 import com.njhyuk.codi.core.price.domain.PriceType
 import com.njhyuk.codi.fixtures.CategoryPriceFixture._상의_최고가

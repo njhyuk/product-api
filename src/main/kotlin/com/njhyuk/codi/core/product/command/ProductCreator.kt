@@ -26,7 +26,7 @@ class ProductCreator(
             ProductCreatedEvent(
                 productNo = product.id,
                 category = product.category,
-                brand = product.brand,
+                brand = product.brand
             )
         )
 

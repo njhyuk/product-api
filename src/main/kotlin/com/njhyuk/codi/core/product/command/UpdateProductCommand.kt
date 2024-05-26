@@ -4,5 +4,5 @@ data class UpdateProductCommand(
     val productNo: Long,
     val price: Long,
     val category: String,
-    val brand: String,
+    val brand: String
 )

@@ -12,7 +12,7 @@ private const val REDISSON_LOCK_PREFIX = "CODI_LOCK:"
 @Aspect
 @Component
 class RedisDistributedLockAspect(
-    private val redissonClient: RedissonClient,
+    private val redissonClient: RedissonClient
 ) {
     @Around("@annotation (com.njhyuk.codi.extension.lock.RedisDistributedLock)")
     fun proceed(joinPoint: ProceedingJoinPoint): Any? {
@@ -27,8 +27,9 @@ class RedisDistributedLockAspect(
             }
             return joinPoint.proceed()
         } finally {
-            if (redisLock.isLocked && redisLock.isHeldByCurrentThread)
+            if (redisLock.isLocked && redisLock.isHeldByCurrentThread) {
                 redisLock.unlock()
+            }
         }
     }
 

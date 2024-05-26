@@ -20,7 +20,8 @@ class DeleteProductController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteProduct(
         @Schema(description = "상품 번호", example = "123")
-        @PathVariable productNo: Long
+        @PathVariable
+        productNo: Long
     ) {
         productDeleter.delete(productNo)
     }

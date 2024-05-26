@@ -22,7 +22,7 @@ class ProductDeleter(
             ProductDeletedEvent(
                 productNo = product.id,
                 category = product.category,
-                brand = product.brand,
+                brand = product.brand
             )
         )
 

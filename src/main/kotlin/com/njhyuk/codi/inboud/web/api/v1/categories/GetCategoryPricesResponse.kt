@@ -8,16 +8,16 @@ data class GetCategoryPricesResponse(
     @Schema(description = "최저가")
     val lowestPrice: PriceItem?,
     @Schema(description = "최고가")
-    val highestPrice: PriceItem?,
+    val highestPrice: PriceItem?
 ) {
     companion object {
         fun from(
             lowestDto: CategoryPriceDto?,
-            highestDto: CategoryPriceDto?,
+            highestDto: CategoryPriceDto?
         ): GetCategoryPricesResponse {
             return GetCategoryPricesResponse(
                 lowestPrice = lowestDto?.let { PriceItem.from(it) },
-                highestPrice = highestDto?.let { PriceItem.from(it) },
+                highestPrice = highestDto?.let { PriceItem.from(it) }
             )
         }
     }

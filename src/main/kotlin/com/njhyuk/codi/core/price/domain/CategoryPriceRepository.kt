@@ -10,7 +10,7 @@ interface CategoryPriceRepository : JpaRepository<CategoryPrice, Long> {
 
     @Query(
         "SELECT cp FROM CategoryPrice cp " +
-                "WHERE cp.priceType = :priceType AND cp.category = :category ORDER BY cp.productPrice asc"
+            "WHERE cp.priceType = :priceType AND cp.category = :category ORDER BY cp.productPrice asc"
     )
     fun findLowestPrice(
         priceType: PriceType,
@@ -19,7 +19,7 @@ interface CategoryPriceRepository : JpaRepository<CategoryPrice, Long> {
 
     @Query(
         "SELECT cp FROM CategoryPrice cp " +
-                "WHERE cp.priceType = :priceType AND cp.category = :category ORDER BY cp.productPrice desc"
+            "WHERE cp.priceType = :priceType AND cp.category = :category ORDER BY cp.productPrice desc"
     )
     fun findHighestPrice(
         priceType: PriceType,

@@ -57,7 +57,7 @@ class BrandPriceUpdater(
         val brandLowestPrice = brandLowestPriceRepository.findByBrand(brand)
             ?: BrandLowestPrice(
                 brand = brand,
-                totalPrice = totalCategoryPrice,
+                totalPrice = totalCategoryPrice
             )
 
         brandLowestPrice.apply {

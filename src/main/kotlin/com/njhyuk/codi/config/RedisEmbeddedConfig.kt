@@ -4,11 +4,10 @@ import jakarta.annotation.PostConstruct
 import jakarta.annotation.PreDestroy
 import org.redisson.Redisson
 import org.redisson.api.RedissonClient
-import org.springframework.context.annotation.Configuration
-import redis.embedded.RedisServer
 import org.redisson.config.Config
 import org.springframework.context.annotation.Bean
-
+import org.springframework.context.annotation.Configuration
+import redis.embedded.RedisServer
 
 @Configuration
 class RedisEmbeddedConfig {
@@ -29,7 +28,7 @@ class RedisEmbeddedConfig {
     @Bean
     fun redissonClient(): RedissonClient? {
         val config = Config()
-        config.useSingleServer().address = "redis://localhost:${redisPort}"
+        config.useSingleServer().address = "redis://localhost:$redisPort"
         return Redisson.create(config)
     }
 }

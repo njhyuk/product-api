@@ -8,7 +8,7 @@ interface BrandCategoryLowestPriceRepository : JpaRepository<BrandCategoryLowest
 
     @Query(
         "SELECT p FROM BrandCategoryLowestPrice p " +
-                "WHERE p.brand = :brand AND p.category = :category ORDER BY p.productPrice asc"
+            "WHERE p.brand = :brand AND p.category = :category ORDER BY p.productPrice asc"
     )
     fun findLowestPrice(
         brand: String,

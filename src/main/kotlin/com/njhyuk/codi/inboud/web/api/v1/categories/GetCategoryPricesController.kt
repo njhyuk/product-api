@@ -19,7 +19,8 @@ class GetCategoryPricesController(
     @GetMapping("/api/v1/categories/prices")
     fun getCategoryPrices(
         @Schema(description = "카테고리", example = "상의")
-        @RequestParam category: String
+        @RequestParam
+        category: String
     ): WebResponse<GetCategoryPricesResponse> {
         val response = getCategoryPricesQuery.findPricesByCategory(category)
             .prices.associateBy { it.priceType }

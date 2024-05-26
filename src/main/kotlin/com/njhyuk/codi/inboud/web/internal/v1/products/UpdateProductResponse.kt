@@ -4,5 +4,5 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 data class UpdateProductResponse(
     @Schema(description = "상품 번호", example = "123")
-    val productNo: Long,
+    val productNo: Long
 )

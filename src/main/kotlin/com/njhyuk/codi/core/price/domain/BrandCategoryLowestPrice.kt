@@ -22,5 +22,5 @@ data class BrandCategoryLowestPrice(
     var productNo: Long,
     var productPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+    val updatedAt: LocalDateTime = LocalDateTime.now()
 )

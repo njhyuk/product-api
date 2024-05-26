@@ -5,7 +5,6 @@ import com.njhyuk.codi.core.price.query.GetCategoryPricesDto
 import io.swagger.v3.oas.annotations.media.Schema
 import com.njhyuk.codi.inboud.web.api.v1.categories.CategoryLowestPriceItemResponse as PriceItem
 
-
 data class GetCategoryLowestPricesResponse(
     @Schema(description = "카테고리별 최저가 리스트")
     val prices: List<PriceItem>,

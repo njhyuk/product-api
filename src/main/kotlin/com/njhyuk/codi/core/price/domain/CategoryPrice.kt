@@ -7,10 +7,11 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import jakarta.persistence.UniqueConstraint
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "category_price")
+@Table(name = "category_price", uniqueConstraints = [UniqueConstraint(columnNames = ["priceType", "category"])])
 data class CategoryPrice(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

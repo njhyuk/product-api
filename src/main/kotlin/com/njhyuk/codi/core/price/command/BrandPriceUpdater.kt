@@ -24,8 +24,6 @@ class BrandPriceUpdater(
 
         val categoryPrice = brandCategoryLowestPriceRepository.findLowestPrice(brand, category)
 
-        if (!shouldUpdatePrice(categoryPrice, product.price)) return
-
         updateBrandCategoryPrice(categoryPrice, product, category, brand)
         updateBrandTotalPrice(brand)
     }
@@ -65,9 +63,5 @@ class BrandPriceUpdater(
         }
 
         brandLowestPriceRepository.save(brandLowestPrice)
-    }
-
-    private fun shouldUpdatePrice(oldPrice: BrandCategoryLowestPrice?, newPrice: Long): Boolean {
-        return oldPrice == null || oldPrice.productPrice > newPrice
     }
 }

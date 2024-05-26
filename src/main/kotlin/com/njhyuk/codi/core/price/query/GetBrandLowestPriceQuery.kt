@@ -1,16 +1,16 @@
 package com.njhyuk.codi.core.price.query
 
-import com.njhyuk.codi.core.price.domain.BrandPriceRepository
+import com.njhyuk.codi.core.price.domain.BrandLowestPriceRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class GetLowestBrandPriceQuery(
-    private val brandPriceRepository: BrandPriceRepository
+class GetBrandLowestPriceQuery(
+    private val brandLowestPriceRepository: BrandLowestPriceRepository
 ) {
     @Transactional(readOnly = true)
     fun getLowestBrandPrice(): BrandPriceDto? {
-        return brandPriceRepository.findFirstByOrderByTotalPrice()
+        return brandLowestPriceRepository.findFirstByOrderByTotalPrice()
             ?.let { BrandPriceDto.from(it) }
     }
 }

@@ -1,13 +1,13 @@
 package com.njhyuk.codi.core.price.query
 
-import com.njhyuk.codi.core.price.domain.BrandPrice
+import com.njhyuk.codi.core.price.domain.BrandLowestPrice
 
 data class BrandPriceDto(
     val brand: String,
     val totalPrice: Long,
 ) {
     companion object {
-        fun from(brandPrice: BrandPrice): BrandPriceDto {
+        fun from(brandPrice: BrandLowestPrice): BrandPriceDto {
             return BrandPriceDto(
                 brand = brandPrice.brand,
                 totalPrice = brandPrice.totalPrice,

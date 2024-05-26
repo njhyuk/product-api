@@ -32,7 +32,7 @@ class CategoryPriceUpdater(
     }
 
     private fun updatePrice(category: String, product: Product, priceType: PriceType) {
-        val categoryPrice = findCategoryPrice(category, priceType, product)
+        val categoryPrice = findCategoryPrice(category, priceType)
 
         if (shouldUpdatePrice(categoryPrice, product.price, priceType)) {
             val newPrice = categoryPrice ?: CategoryPrice(
@@ -44,15 +44,17 @@ class CategoryPriceUpdater(
             )
 
             newPrice.apply {
-                productNo = product.id
-                productPrice = product.price
+                this.category = category
+                this.brand = product.brand
+                this.productNo = product.id
+                this.productPrice = product.price
             }
 
             categoryPriceRepository.save(newPrice)
         }
     }
 
-    private fun findCategoryPrice(category: String, priceType: PriceType, product: Product): CategoryPrice? {
+    private fun findCategoryPrice(category: String, priceType: PriceType): CategoryPrice? {
         return when (priceType) {
             LOWEST -> categoryPriceRepository.findLowestPrice(priceType, category)
             HIGHEST -> categoryPriceRepository.findHighestPrice(priceType, category)

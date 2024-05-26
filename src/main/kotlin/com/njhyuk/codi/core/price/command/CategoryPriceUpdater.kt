@@ -19,7 +19,7 @@ class CategoryPriceUpdater(
     fun updatePrice(category: String) {
         PriceType.values().forEach { priceType ->
             val product = findProduct(category, priceType) ?: return
-            
+
             updatePrice(category, product, priceType)
         }
     }
@@ -35,16 +35,18 @@ class CategoryPriceUpdater(
         val categoryPrice = findCategoryPrice(category, priceType, product)
 
         if (shouldUpdatePrice(categoryPrice, product.price, priceType)) {
-            val newPrice = categoryPrice?.apply {
-                productNo = product.id
-                productPrice = product.price
-            } ?: CategoryPrice(
+            val newPrice = categoryPrice ?: CategoryPrice(
                 category = category,
                 brand = product.brand,
                 productNo = product.id,
                 productPrice = product.price,
                 priceType = priceType
             )
+
+            newPrice.apply {
+                productNo = product.id
+                productPrice = product.price
+            }
 
             categoryPriceRepository.save(newPrice)
         }

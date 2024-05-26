@@ -14,7 +14,7 @@ data class BrandLowestPrice(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
     val brand: String,
-    val totalPrice: Long,
+    var totalPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),
 )

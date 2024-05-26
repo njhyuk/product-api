@@ -8,15 +8,15 @@ import jakarta.persistence.Table
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "brand_price")
-data class BrandCategoryPrice(
+@Table(name = "brand_category_lowest_price")
+data class BrandCategoryLowestPrice(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
     val brand: String,
     val category: String,
-    val productNo: String,
-    val productPrice: Long,
+    var productNo: Long,
+    var productPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),
 )

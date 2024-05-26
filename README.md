@@ -38,7 +38,7 @@ http://localhost:8080/swagger-ui/index.html
 
 ![img_3.png](README/img_3.png)
 
-### 구현 4
+### 구현 3
 
 * 카테고리 이름으로 최저, 최고 가격 브랜드와 상품 가격을 조회하는 API
 * `/api/v1/categories/prices`

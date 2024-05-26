@@ -52,6 +52,14 @@ http://localhost:8080/swagger-ui/index.html
 
 ![img.png](README/img.png)
 
+### 단위테스트 및 통합테스트
+
+```
+./gradlew clean test
+```
+
+![img.png](README/img_test.png)
+
 ## 접근/해결 방식
 
 * 서브쿼리 및 집계 쿼리를 사용할 것인가?
@@ -66,6 +74,10 @@ http://localhost:8080/swagger-ui/index.html
     * 최소한의 메소드만 갖는 Command (저장/실행), Query (조회) 객체로 구성하여 SRP를 따르려 노력함
         * GetCategoryPricesQuery : 카테고리별 최저가 "조회" 책임
         * CategoryPriceUpdater : 카테고리별 최저가 정보 "업데이트" 책임
+* 동시성 이슈는 어떻게 처리할 것인가?
+    * 이벤트 소싱 방식으로 최저가 업데이트시 동시성 이슈가 발생할 수 있음
+    * @RedisDistributedLock 어노테이션을 통해 CategoryPriceUpdater 및 BrandPriceUpdater 에 대한 동시성 제어를 수행함
+    * 동시성 통합테스트는 CategoryPriceUpdaterIntegrationTest 에서 수행함
 
 ## 스키마 정보
 

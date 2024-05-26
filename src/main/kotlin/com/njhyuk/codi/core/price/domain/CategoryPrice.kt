@@ -19,8 +19,8 @@ data class CategoryPrice(
     val priceType: PriceType,
     val category: String,
     val brand: String,
-    val productNo: String,
-    val productPrice: Long,
+    var productNo: Long,
+    var productPrice: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),
 )

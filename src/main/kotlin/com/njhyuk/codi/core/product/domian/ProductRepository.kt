@@ -4,4 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface ProductRepository : JpaRepository<Product, Long> {
     fun findAllByBrand(brand: String): List<Product>
+
+    fun findFirstByCategoryOrderByPriceAsc(category: String): Product?
+
+    fun findFirstByCategoryOrderByPriceDesc(category: String): Product?
 }

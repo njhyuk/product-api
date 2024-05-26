@@ -7,7 +7,7 @@ data class CategoryPriceDto(
     val priceType: PriceType,
     val category: String,
     val brand: String,
-    val productNo: String,
+    val productNo: Long,
     val productPrice: Long
 ) {
     companion object {

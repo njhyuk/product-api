@@ -1,4 +1,4 @@
-# codi-api
+# product-api
 
 ## 프로젝트 환경 정보
 

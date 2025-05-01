@@ -26,7 +26,8 @@ class ProductCreatorTest(
                 CreateProductCommand(
                     price = 1000,
                     category = "상의",
-                    brand = "A"
+                    brand = "A",
+                    name = "이름",
                 )
             )
 

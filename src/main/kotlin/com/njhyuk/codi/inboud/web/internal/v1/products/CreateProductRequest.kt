@@ -8,5 +8,7 @@ data class CreateProductRequest(
     @Schema(description = "카테고리", example = "상의")
     val category: String,
     @Schema(description = "브랜드", example = "Z")
-    val brand: String
+    val brand: String,
+    @Schema(description = "상품명", example = "후드 집업")
+    val name: String
 )

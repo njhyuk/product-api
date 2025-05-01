@@ -28,7 +28,7 @@ class CategoryPriceUpdaterIntegrationTest(
                 executorService.submit {
                     try {
                         log.info { "$i 스레드 상품 생성 통합 테스트 시작" }
-                        val command = CreateProductCommand(i.toLong(), "임시_카테고리", "임시_브랜드")
+                        val command = CreateProductCommand(i.toLong(), "임시_카테고리", "임시_브랜드", "임시_이름")
                         productCreator.create(command)
                     } finally {
                         log.info { "$i 스레드 상품 생성 통합 테스트 종료" }

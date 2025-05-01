@@ -12,6 +12,7 @@ class DummyDataConfig(
     override fun run(vararg args: String?) {
         val brands = listOf("A", "B", "C", "D", "E", "F", "G", "H", "I")
         val categories = listOf("상의", "아우터", "바지", "스니커즈", "가방", "모자", "양말", "액세서리")
+        val names = listOf("블랙 후드", "슈프림 아우터", "청바지", "아식스", "아크테릭스 가방", "HDEX 모자", "HDEX 양말", "목걸이")
         val prices = listOf(
             listOf(11200L, 5500L, 4200L, 9000L, 2000L, 1700L, 1800L, 2300L),
             listOf(10500L, 5900L, 3800L, 9100L, 2100L, 2000L, 2000L, 2200L),
@@ -27,7 +28,7 @@ class DummyDataConfig(
         for ((brandIndex, brand) in brands.withIndex()) {
             for ((categoryIndex, category) in categories.withIndex()) {
                 val price = prices[brandIndex][categoryIndex]
-                val command = CreateProductCommand(price, category, brand)
+                val command = CreateProductCommand(price, category, brand, names[categoryIndex])
                 productCreator.create(command)
             }
         }

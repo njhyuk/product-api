@@ -23,7 +23,8 @@ class CreateProductController(
             CreateProductCommand(
                 price = request.price,
                 category = request.category,
-                brand = request.brand
+                brand = request.brand,
+                name = request.name,
             )
         )
 

@@ -11,6 +11,8 @@ Spring Boot 3.3.0
 ## 코드 빌드 및 실행
 
 ```sh
+docker run -p 9200:9200 -e "discovery.type=single-node" elasticsearch:7.17.0
+
 ./gradlew clean build
 ```
 

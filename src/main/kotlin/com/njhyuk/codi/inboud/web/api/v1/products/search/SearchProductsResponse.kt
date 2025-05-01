@@ -24,7 +24,7 @@ data class SearchProductsItemResponse(
     @Schema(description = "카테고리", example = "상의")
     val category: String,
     @Schema(description = "브랜드", example = "A")
-    val brand: String,
+    val brand: String
 ) {
     companion object {
         fun from(document: ProductDocument): SearchProductsItemResponse {

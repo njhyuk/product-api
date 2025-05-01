@@ -10,7 +10,7 @@ data class ProductResponse(
     var category: String,
     var brand: String,
     val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
+    val updatedAt: LocalDateTime
 ) {
     companion object {
         fun from(product: Product): ProductResponse {
@@ -21,7 +21,7 @@ data class ProductResponse(
                 category = product.category,
                 brand = product.brand,
                 createdAt = product.createdAt,
-                updatedAt = product.updatedAt,
+                updatedAt = product.updatedAt
             )
         }
     }

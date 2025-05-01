@@ -19,7 +19,7 @@ class ProductCreator(
                 price = command.price,
                 category = command.category,
                 brand = command.brand,
-                name = command.name,
+                name = command.name
             )
         )
 

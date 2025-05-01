@@ -10,16 +10,19 @@ import org.springframework.web.bind.annotation.RestController
 @Tag(name = "[Public API] 상품 검색")
 @RestController
 class SearchProductsController(
-    private val getProductDocumentSearchQuery: GetProductDocumentSearchQuery,
+    private val getProductDocumentSearchQuery: GetProductDocumentSearchQuery
 ) {
     @GetMapping("/api/v1/products/search")
     fun searchProducts(
         @Schema(description = "키워드", example = "상의")
-        @RequestParam keyword: String,
+        @RequestParam
+        keyword: String,
         @Schema(description = "페이지", example = "0")
-        @RequestParam page: Int = 0,
+        @RequestParam
+        page: Int = 0,
         @Schema(description = "사이즈", example = "10")
-        @RequestParam size: Int = 10,
+        @RequestParam
+        size: Int = 10
     ): SearchProductsResponse {
         val products = getProductDocumentSearchQuery.search(
             keyword = keyword,

@@ -27,7 +27,7 @@ class ProductCreatorTest(
                     price = 1000,
                     category = "상의",
                     brand = "A",
-                    name = "이름",
+                    name = "이름"
                 )
             )
 

@@ -4,5 +4,5 @@ data class CreateProductCommand(
     val price: Long,
     val category: String,
     val brand: String,
-    val name: String,
+    val name: String
 )

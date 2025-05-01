@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class ProductDocumentCreator(
-    private val productDocumentRepository: ProductDocumentRepository,
+    private val productDocumentRepository: ProductDocumentRepository
 ) {
     fun create(command: CreateProductDocumentCommand) {
         productDocumentRepository.save(
@@ -15,7 +15,7 @@ class ProductDocumentCreator(
                 name = command.name,
                 price = command.price,
                 category = command.category,
-                brand = command.brand,
+                brand = command.brand
             )
         )
     }

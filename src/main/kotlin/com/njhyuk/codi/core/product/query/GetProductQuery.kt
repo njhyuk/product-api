@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class GetProductQuery(
-    private val productRepository: ProductRepository,
+    private val productRepository: ProductRepository
 ) {
     fun getProduct(productNo: Long): ProductResponse {
         val product = productRepository.findByIdOrNull(productNo)

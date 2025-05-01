@@ -2,7 +2,6 @@ package com.njhyuk.codi.core.search.domain
 
 import jakarta.persistence.Id
 import org.springframework.data.elasticsearch.annotations.Document
-import java.time.LocalDateTime
 
 @Document(indexName = "products")
 data class ProductDocument(
@@ -11,5 +10,5 @@ data class ProductDocument(
     val name: String,
     val price: Long,
     val category: String,
-    val brand: String,
+    val brand: String
 )

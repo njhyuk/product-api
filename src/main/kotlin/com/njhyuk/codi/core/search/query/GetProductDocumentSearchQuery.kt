@@ -5,12 +5,11 @@ import com.njhyuk.codi.core.search.domain.ProductDocument
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.elasticsearch.client.elc.NativeQuery
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations
-import org.springframework.data.elasticsearch.core.SearchHits
 import org.springframework.stereotype.Service
 
 @Service
 class GetProductDocumentSearchQuery(
-    private val elasticsearchOperations: ElasticsearchOperations,
+    private val elasticsearchOperations: ElasticsearchOperations
 ) {
     fun search(keyword: String, page: Int, size: Int): List<ProductDocument> {
         val query = NativeQuery.builder()

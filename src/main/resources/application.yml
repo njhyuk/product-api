@@ -20,3 +20,5 @@ spring:
       connection-timeout: 3000
       maximum-pool-size: 30
       max-lifetime: 30000
+  elasticsearch:
+    uris: http://elasticsearch:9200

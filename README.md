@@ -10,36 +10,8 @@ Spring Boot 3.3.0
 
 ## 코드 빌드 및 실행
 
-### 엘라스틱 서치 셋팅
 ```sh
-docker run -p 9200:9200 -e "discovery.type=single-node" elasticsearch:7.17.0
-
-docker exec -it elasticsearch /bin/bash
-
-elasticsearch-plugin install analysis-nori
-
-docker restart elasticsearch
-
-curl -X PUT "localhost:9200/products" -H 'Content-Type: application/json' -d'
-{
-  "mappings": {
-    "properties": {
-      "name": { "type": "text", "analyzer": "nori" },
-      "category": { "type": "text", "analyzer": "nori" },
-      "brand": { "type": "text", "analyzer": "nori" }
-    }
-  }
-}'
-```
-
-## 어플리케이션 실행
-
-```sh
-./gradlew clean build
-```
-
-```sh
-java -jar build/libs/codi-0.0.1-SNAPSHOT.jar
+docker compose up --build
 ```
 
 ## API 문서 (Swagger)

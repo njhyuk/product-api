@@ -24,7 +24,7 @@ class CreateProductController(
                 price = request.price,
                 category = request.category,
                 brand = request.brand,
-                name = request.name,
+                name = request.name
             )
         )
 

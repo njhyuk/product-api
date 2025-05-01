@@ -12,6 +12,4 @@ data class ProductDocument(
     val price: Long,
     val category: String,
     val brand: String,
-    val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
 )

@@ -22,7 +22,7 @@ http://localhost:8080/swagger-ui/index.html
 
 ### 구현 1
 
-* 카테고리 별 최저가격 브랜드와 상품 가격, 총액을 조회하는 API
+* 카테고리 별 최저가격 브랜드와 상품 가격, 총액을 조회하는 API 
 * `/api/v1/categories/lowest-prices`
 
 ![img_1.png](README/img_1.png)
